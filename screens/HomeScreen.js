@@ -33,6 +33,7 @@ export default class HomeScreen extends Component {
       onRegister: function (token) {
         console.log("TOKEN:", token);
       },
+
       onNotification: function (notification) {
         console.log("NOTIFICATION:", notification);
       },
@@ -47,6 +48,9 @@ export default class HomeScreen extends Component {
   }
 
   storeData = async () => {
+    console.log("---SAVING---")
+    console.log(this.state.timers_shown)
+
     try {
       await AsyncStorage.setItem("timers", JSON.stringify(this.state.timers_shown))
     } catch (e) {
@@ -55,42 +59,41 @@ export default class HomeScreen extends Component {
   }
 
   loadData = async () => {
+    console.log("---LOADING---")
     try {
       const data = await AsyncStorage.getItem("timers")
-      // if (data !== null) {
-      //   this.setState({timers_shown: JSON.parse(data)}, () => {
-      //     Notifications.addListener((notification) => {
-      //       var notification_id = notification.notificationId
-      //       var timers_copy = [...this.state.timers_shown]
+      if (data !== null) {
+        this.setState({timers_shown: JSON.parse(data)}, () => {
+          var today = new Date()
+          today = today.toISOString()
+          this.setState({now: today}, () => {
+            var temp = [...this.state.timers_shown]
+            for (var i = 0; i < temp.length; i++) {
+            if (this.state.now > temp[i].time_stamp || temp[i].time_stamp == -1) {
+              temp[i].item_status = "Finished"
+              temp[i].item_running = false
+              temp[i].time_stamp = -1
+              this.setState({timers_shown: temp}, () => {
+                this.storeData()
+              })
+            }
+          }
+        })          
+            //   var timers_copy = [...this.state.timers_shown]
 
-      //       for (var index = 0; index < timers_copy.length; index++) {
-      //         if (timers_copy[index].notify_id == notification_id) {
-      //           timers_copy[index].item_status = "Finished"
-      //           timers_copy[index].item_running = false
-      //           this.setState({timers_shown: timers_copy}, () => {
-      //             this.storeData()
-      //           })
-      //         }
-      //       }
-      //     })
-      //     var today = new Date()
-      //     today = today.toISOString()
-      //     this.setState({now: today}, () => {
-      //       var temp = [...this.state.timers_shown]
-      //       for (var i = 0; i < temp.length; i++) {
-      //       if (this.state.now > temp[i].time_stamp || temp[i].time_stamp == -1) {
-      //         temp[i].item_status = "Finished"
-      //         temp[i].item_running = false
-      //         temp[i].time_stamp = -1
-      //         this.setState({timers_shown: temp}, () => {
-      //           this.storeData()
-      //         })
-      //       }
-      //     }
-      //     })
-
-      //   })
-      // }
+            //   for (var index = 0; index < timers_copy.length; index++) {
+            //     if (timers_copy[index].notify_id == notification_id) {
+            //       timers_copy[index].item_status = "Finished"
+            //       timers_copy[index].item_running = false
+            //       this.setState({timers_shown: timers_copy}, () => {
+            //         this.storeData()
+            //       })
+            //     }
+            //   }
+            // })
+            //})
+        })
+      }
     } catch (e) {
       console.log(e)
     }
@@ -119,9 +122,14 @@ export default class HomeScreen extends Component {
   }
 
   onStartPress = async (item, index) => {
-    PushNotification.localNotification({
-      title: item.name, // (optional)
-      message: item.name + " is ready", // (required)
+    console.log("../assets/" + item.img + ".png")
+    const ONE_SECOND = 1000
+    const id = PushNotification.localNotificationSchedule({
+      //... You can use all the options from localNotifications
+      id: item.key,
+      message: item.name + " is Ready", // (required)
+      date: new Date(Date.now() + (item.duration * 60) * ONE_SECOND), // in 60 secs
+      allowWhileIdle: true, // (optional) set notification to work while on doze, default: false
     });
   }
 
@@ -227,8 +235,7 @@ export default class HomeScreen extends Component {
                                 this.setState({timers_shown: temp}, () => {
                                   this.storeData()
                                 })
-                            const id = item.notify_id
-                            //Notifications.cancelScheduledNotificationAsync(id)
+                            PushNotification.cancelLocalNotifications({id: item.key});
                           }
                         }}>
                           <Image source={this.changeShownButton(index)} style={{resizeMode:"contain", width: 30, height: 30}}></Image>
