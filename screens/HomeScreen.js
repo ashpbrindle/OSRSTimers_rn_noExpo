@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Text, TouchableOpacity, View, FlatList, Image, AsyncStorage, ScrollView, StatusBar, Alert, Dimensions, Platform } from "react-native";
 import PushNotification from 'react-native-push-notification'
+import BackgroundTimer from 'react-native-background-timer'
 import {timers_tree} from '../data/trees.js'
 import {timers_specialTree} from '../data/specialTrees.js'
 import {timers_hardwoodTree} from '../data/hardwoodTrees'
@@ -66,33 +67,49 @@ export default class HomeScreen extends Component {
         this.setState({timers_shown: JSON.parse(data)}, () => {
           var today = new Date()
           today = today.toISOString()
+
           this.setState({now: today}, () => {
             var temp = [...this.state.timers_shown]
             for (var i = 0; i < temp.length; i++) {
-            if (this.state.now > temp[i].time_stamp || temp[i].time_stamp == -1) {
-              temp[i].item_status = "Finished"
-              temp[i].item_running = false
-              temp[i].time_stamp = -1
-              this.setState({timers_shown: temp}, () => {
-                this.storeData()
-              })
-            }
-          }
-        })          
-            //   var timers_copy = [...this.state.timers_shown]
+              if (temp[i].time_stamp != -1) {
+                var d1 = new Date(this.state.now)
+                var d2 = new Date(temp[i].time_stamp);
+                console.log(temp[i].time_stamp)
+                console.log(this.state.now)
+                console.log(d2 - d1)
 
-            //   for (var index = 0; index < timers_copy.length; index++) {
-            //     if (timers_copy[index].notify_id == notification_id) {
-            //       timers_copy[index].item_status = "Finished"
-            //       timers_copy[index].item_running = false
-            //       this.setState({timers_shown: timers_copy}, () => {
-            //         this.storeData()
-            //       })
-            //     }
-            //   }
-            // })
-            //})
+                if (d2 - d1 > 0) { 
+                  console.log("setting timer")
+                  var temp2 = [...this.state.timers_shown]
+                  var index = i
+                  temp2[i].timer_id = setInterval(() => {
+                    temp2[index].item_status = "Finished"
+                    temp2[index].item_running = false
+                    temp2[index].time_stamp = -1
+                    this.setState({timers_shown: temp2}, () => {
+                      this.storeData()
+                    })
+                  }, (d2 - d1))
+                }
+              }
+              if (this.state.now > temp[i].time_stamp || temp[i].time_stamp == -1) {
+                console.log("timer finised")
+                if (temp[i].time_stamp == -1) {
+                  temp[i].item_status = "Not Running"
+                }
+                else {
+                  temp[i].item_status = "Finished"
+                }
+                temp[i].item_running = false
+                temp[i].time_stamp = -1
+                this.setState({timers_shown: temp}, () => {
+                  this.storeData()
+                })
+              }
+            }
+          })
         })
+
       }
     } catch (e) {
       console.log(e)
@@ -122,19 +139,35 @@ export default class HomeScreen extends Component {
   }
 
   onStartPress = async (item, index) => {
-    console.log("../assets/" + item.img + ".png")
     const ONE_SECOND = 1000
     const id = PushNotification.localNotificationSchedule({
       //... You can use all the options from localNotifications
       id: item.key,
-      message: item.name + " is Ready", // (required)
+      largeIcon: "",
+      title: "Timer Finished!",
+      message: "Your " + item.name + " is Ready", // (required)
       date: new Date(Date.now() + (item.duration * 60) * ONE_SECOND), // in 60 secs
       allowWhileIdle: true, // (optional) set notification to work while on doze, default: false
     });
+
+    var temp = [...this.state.timers_shown]
+
+    temp[index].timer_id = setInterval(() => {
+      var temp2 = [...this.state.timers_shown]
+      temp2[index].item_status = "Finished"
+      temp2[index].item_running = false
+      temp2[index].time_stamp -1
+      this.setState({timers_shown: temp}, () => {
+        this.storeData()
+      })
+    }, (item.duration * 60) * ONE_SECOND)
+    this.setState({timers_shown: temp}, () => {
+      this.storeData()
+    })
+
   }
 
   onDeletePress(item) {
-
     Alert.alert(
       "Are you sure you want to delete your " + item.name,
       "This will delete the " + item.name + " item from your saved list",
@@ -164,7 +197,8 @@ export default class HomeScreen extends Component {
       item_status: "Not Running",
       item_running: false,
       notify_id: "",
-      time_stamp: -1
+      time_stamp: -1,
+      timer_id: ""
     }
 
 
@@ -219,9 +253,10 @@ export default class HomeScreen extends Component {
                             var temp = [...this.state.timers_shown]
                             temp[index].item_status = "Running: " + getDoubleNumber(newDateObj.getHours()) + ":" + getDoubleNumber(newDateObj.getMinutes()) + " " + getDoubleNumber(newDateObj.getDate()) + "/" + getDoubleNumber(newDateObj.getMonth()) + "/" + newDateObj.getFullYear()
                             temp[index].item_running = true
-                            var today = new Date()
-                            today.setSeconds(now.getSeconds() + (item.duration * 60))
-                            temp[index].time_stamp = today
+                            var finish = new Date()
+                            finish.setSeconds(now.getSeconds() + (item.duration * 60))
+                            console.log(finish)
+                            temp[index].time_stamp = finish
                             this.setState({timers_shown: temp}, () => {
                               this.storeData()
                               this.onStartPress(item, index)
@@ -229,12 +264,16 @@ export default class HomeScreen extends Component {
                           }
                           else {
                             // stop timer and notification
+                            clearInterval(item.timer_id)
                             var temp = [...this.state.timers_shown]
                               temp[index].item_status = "Not Running"
+                              temp[index].timer_id = ""
+                              temp[index].time_stamp = -1
                                 temp[index].item_running = false
                                 this.setState({timers_shown: temp}, () => {
                                   this.storeData()
                                 })
+
                             PushNotification.cancelLocalNotifications({id: item.key});
                           }
                         }}>

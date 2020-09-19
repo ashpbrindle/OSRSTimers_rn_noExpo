@@ -4,7 +4,12 @@ import HomeScreen from './screens/HomeScreen'
 
 const navigatior = createStackNavigator(
   {
-    Home: {screen: HomeScreen}
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        header: null,
+      },
+    }
   },
   {
     initialRouteName: "Home"

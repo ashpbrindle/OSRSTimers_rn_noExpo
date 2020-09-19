@@ -1,6 +1,6 @@
 export const timers_flowers = [
     {
-        "name":"Marigolds",
+        "name":"Marigold Flower",
         "duration": 1,
         "type": "Flower",
         "img": "img_marigold",
@@ -11,7 +11,7 @@ export const timers_flowers = [
         time_stamp: -1
     },
     {
-        "name":"Rosemarys",
+        "name":"Rosemary Flower",
         "duration": 20,
         "type": "Flower",
         "img": "img_rosemary",
@@ -22,7 +22,7 @@ export const timers_flowers = [
         time_stamp: -1
     },
     {
-        "name":"Nasturtiums",
+        "name":"Nasturtium Flower",
         "duration": 20,
         "type": "Flower",
         "img": "img_nasturtium",
@@ -33,7 +33,7 @@ export const timers_flowers = [
         time_stamp: -1
     },
     {
-        "name":"Woads",
+        "name":"Woad Flower",
         "duration": 20,
         "type": "Flower",
         "img": "img_woad",
@@ -44,7 +44,7 @@ export const timers_flowers = [
         time_stamp: -1
     },
     {
-        "name":"Limpwurts",
+        "name":"Limpwurt",
         "duration": 20,
         "type": "Flower",
         "img": "img_limpwurt",
@@ -55,7 +55,7 @@ export const timers_flowers = [
         time_stamp: -1
     },
     {
-        "name":"White Lillies",
+        "name":"White Lillie Flower",
         "duration": 20,
         "type": "Flower",
         "img": "img_white_lily",
