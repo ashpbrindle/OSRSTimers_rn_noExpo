@@ -13,6 +13,7 @@ export const styles =  StyleSheet.create({
       fontSize: 20,
       justifyContent: "center",
       textAlign: "center",
+      fontFamily: "sans-serif"
     },
     stView_main: {
       borderBottomWidth: 0.2,
@@ -36,24 +37,32 @@ export const styles =  StyleSheet.create({
     },
     stText_name: {
       fontSize: 20,
-      color: "#4b423a",
+      color: "#695f51",
+      fontFamily: "sans-serif"
     },
     stText_duration: {
       fontSize: 15,
-      color: "#695f51"
+      color: "#695f51",
+      fontFamily: "sans-serif"
     },
     stText_type: {
       fontSize: 15,
       color: "#695f51",
-      width: 150
+      fontFamily: "sans-serif"
     },
     stText_header: {
       flexGrow: 1,
-      textAlign: "center",
-      flex: 1,
+      textAlign: "left",
       fontSize: 20,
       backgroundColor: "#695f51",
       color: "#d1bf9b",
-      borderWidth: 0.2
+      borderStartWidth:0.2,
+      borderTopWidth: 0.2,
+      borderBottomWidth: 0.2,
+      fontFamily: "sans-serif",
+      padding: 5,
+      paddingLeft: 10, 
+      height: 40,
+      paddingTop: 7.5
     }
   });

@@ -55,6 +55,14 @@ export const findIcon = (item) => {
         case "img_jangerberry": return require("../assets/img_jangerberry.png")
         case "img_whiteberry": return require("../assets/img_whiteberry.png")
         case "img_poison_ivy": return require("../assets/img_poison_ivy.png")
+        case "img_potato": return require("../assets/img_potato.png")
+        case "img_onion": return require("../assets/img_onion.png")
+        case "img_cabbage": return require("../assets/img_cabbage.png")
+        case "img_tomato": return require("../assets/img_tomato.png")
+        case "img_sweetcorn": return require("../assets/img_sweetcorn.png")
+        case "img_strawberry": return require("../assets/img_strawberry.png")
+        case "img_watermelon": return require("../assets/img_watermelon.png")
+        case "img_snapegrass": return require("../assets/img_snapegrass.png")
         default: break
     }
 }
