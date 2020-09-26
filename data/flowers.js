@@ -1,14 +1,16 @@
 export const timers_flowers = [
     {
         "name":"Marigold Flower",
-        "duration": 1,
+        "duration": 20,
         "type": "Flower",
         "img": "img_marigold",
         "key": "20",
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "2",
+        skill: "Farming"
     },
     {
         "name":"Rosemary Flower",
@@ -19,7 +21,9 @@ export const timers_flowers = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "11",
+        skill: "Farming"
     },
     {
         "name":"Nasturtium Flower",
@@ -30,7 +34,9 @@ export const timers_flowers = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "24",
+        skill: "Farming"
     },
     {
         "name":"Woad Flower",
@@ -41,7 +47,9 @@ export const timers_flowers = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "25",
+        skill: "Farming"
     },
     {
         "name":"Limpwurt",
@@ -52,7 +60,9 @@ export const timers_flowers = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "26",
+        skill: "Farming"
     },
     {
         "name":"White Lillie Flower",
@@ -63,6 +73,8 @@ export const timers_flowers = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "58",
+        skill: "Farming"
     },
 ]

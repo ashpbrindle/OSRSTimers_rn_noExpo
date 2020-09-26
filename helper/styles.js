@@ -45,10 +45,12 @@ export const styles =  StyleSheet.create({
     stText_type: {
       fontSize: 15,
       color: "#695f51",
+      width: 150
     },
     stText_header: {
       flexGrow: 1,
       textAlign: "center",
+      flex: 1,
       fontSize: 20,
       backgroundColor: "#695f51",
       color: "#d1bf9b",

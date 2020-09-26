@@ -9,7 +9,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "9",
+        skill: "Farming"
     },
     {
         "name":"Marrentill Herb",
@@ -20,7 +22,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "14",
+        skill: "Farming"
     },
     {
         "name":"Tarromin Herb",
@@ -31,7 +35,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "19",
+        skill: "Farming"
     },
     {
         "name":"Harralander Herb",
@@ -42,7 +48,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "26",
+        skill: "Farming"
     },
     {
         "name":"Gout Tuber",
@@ -53,7 +61,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "29",
+        skill: "Farming"
     },
     {
         "name":"Ranarr Herb",
@@ -64,7 +74,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "32",
+        skill: "Farming"
     },
     {
         "name":"Toadflax Herb",
@@ -75,7 +87,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "38",
+        skill: "Farming"
     },
     {
         "name":"Irit Herb",
@@ -86,7 +100,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "44",
+        skill: "Farming"
     },
     {
         "name":"Avantoe Herb",
@@ -97,7 +113,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "50",
+        skill: "Farming"
     },
     {
         "name":"Kwuarm Herb",
@@ -108,7 +126,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "56",
+        skill: "Farming"
     },
     {
         "name":"Snapdragon Herb",
@@ -119,7 +139,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "62",
+        skill: "Farming"
     },
     {
         "name":"Cadantine Herb",
@@ -130,7 +152,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "67",
+        skill: "Farming"
     },
     {
         "name":"Lantadyme Herb",
@@ -141,7 +165,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "73",
+        skill: "Farming"
     },
     {
         "name":"Dwarf Weed Herb",
@@ -152,7 +178,9 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "79",
+        skill: "Farming"
     },
     {
         "name":"Torstol Herb",
@@ -163,6 +191,8 @@ export const timers_herb = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "85",
+        skill: "Farming"
     },
 ]

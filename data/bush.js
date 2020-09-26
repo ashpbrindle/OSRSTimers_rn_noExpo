@@ -8,7 +8,9 @@ export const timers_bush = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "10",
+        skill: "Farming"
     },
     {
         "name":"Cadavaberry Bush",
@@ -19,7 +21,9 @@ export const timers_bush = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "22",
+        skill: "Farming"
     },
     {
         "name":"Dwellberry Bush",
@@ -30,7 +34,9 @@ export const timers_bush = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "36",
+        skill: "Farming"
     },
     {
         "name":"Jangerberry Bush",
@@ -41,7 +47,9 @@ export const timers_bush = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "48",
+        skill: "Farming"
     },
     {
         "name":"Whiteberry Bush",
@@ -52,7 +60,9 @@ export const timers_bush = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "59",
+        skill: "Farming"
     },
     {
         "name":"Poison Ivy Bush",
@@ -63,6 +73,8 @@ export const timers_bush = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "70",
+        skill: "Farming"
     }
 ]

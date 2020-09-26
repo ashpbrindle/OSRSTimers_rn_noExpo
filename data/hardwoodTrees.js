@@ -8,7 +8,9 @@ export const timers_hardwoodTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "35",
+    skill: "Farming"
 },
 {
     "name":"Mahogany Tree",
@@ -19,6 +21,8 @@ export const timers_hardwoodTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "55",
+    skill: "Farming"
 }
 ]

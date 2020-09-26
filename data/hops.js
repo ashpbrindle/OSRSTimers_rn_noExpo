@@ -8,7 +8,9 @@ export const timers_hop = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "3",
+        skill: "Farming"
     },
     {
         "name":"Hammerstone",
@@ -19,7 +21,9 @@ export const timers_hop = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "4",
+        skill: "Farming"
     },
     {
         "name":"Asgarnian",
@@ -30,7 +34,9 @@ export const timers_hop = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "8",
+        skill: "Farming"
     },
     {
         "name":"Jute",
@@ -41,7 +47,9 @@ export const timers_hop = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "13",
+        skill: "Farming"
     },
     {
         "name":"Yanillian",
@@ -52,7 +60,9 @@ export const timers_hop = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "16",
+        skill: "Farming"
     },
     {
         "name":"Krandorian",
@@ -63,7 +73,9 @@ export const timers_hop = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "21",
+        skill: "Farming"
     },
     {
         "name":"Wildblood",
@@ -74,6 +86,8 @@ export const timers_hop = [
         "item_status": "Not Running",
         item_running: false,
         notify_id: "",
-        time_stamp: -1
+        time_stamp: -1,
+        level: "28",
+        skill: "Farming"
     }
 ]

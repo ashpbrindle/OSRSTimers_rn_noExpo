@@ -8,7 +8,9 @@ export const timers_tree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "15",
+    skill: "Farming"
 },
 {
     "name":"Willow Tree",
@@ -19,7 +21,9 @@ export const timers_tree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "30",
+    skill: "Farming"
 },
 {
     "name":"Maple Tree",
@@ -30,7 +34,9 @@ export const timers_tree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "45",
+    skill: "Farming"
 },
 {
     "name":"Yew Tree",
@@ -41,7 +47,9 @@ export const timers_tree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "60",
+    skill: "Farming"
 },
 {
     "name":"Magic Tree",
@@ -52,6 +60,8 @@ export const timers_tree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "75",
+    skill: "Farming"
 }
 ]

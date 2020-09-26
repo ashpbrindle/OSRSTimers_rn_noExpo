@@ -8,7 +8,9 @@ export const timers_fruitTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "27",
+    skill: "Farming"
 },
 {
     "name":"Banana Tree",
@@ -19,7 +21,9 @@ export const timers_fruitTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "33",
+    skill: "Farming"
 },
 {
     "name":"Orange Tree",
@@ -30,7 +34,9 @@ export const timers_fruitTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "39",
+    skill: "Farming"
 },
 {
     "name":"Curry Tree",
@@ -41,7 +47,9 @@ export const timers_fruitTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "42",
+    skill: "Farming"
 },
 {
     "name":"Pineapple Tree",
@@ -52,7 +60,9 @@ export const timers_fruitTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "51",
+    skill: "Farming"
 },
 {
     "name":"Papaya Tree",
@@ -63,7 +73,9 @@ export const timers_fruitTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "57",
+    skill: "Farming"
 },
 {
     "name":"Palm Tree",
@@ -74,7 +86,9 @@ export const timers_fruitTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "68",
+    skill: "Farming"
 },
 {
     "name":"Dragon Fruit Tree",
@@ -85,6 +99,8 @@ export const timers_fruitTree = [
     "item_status": "Not Running",
     item_running: false,
     notify_id: "",
-    time_stamp: -1
+    time_stamp: -1,
+    level: "81",
+    skill: "Farming"
 }
 ]

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Text, TouchableOpacity, View, FlatList, Image, AsyncStorage, ScrollView, StatusBar, Alert, Dimensions, Platform } from "react-native";
+import { Text, TouchableOpacity, View, FlatList, Image, ScrollView, StatusBar, Alert, Dimensions, Platform } from "react-native";
+import AsyncStorage from '@react-native-community/async-storage'
 import PushNotification from 'react-native-push-notification'
 import BackgroundTimer from 'react-native-background-timer'
 import {timers_tree} from '../data/trees.js'
@@ -11,6 +12,7 @@ import {timers_flowers} from '../data/flowers.js'
 import {timers_herb} from '../data/herbs.js'
 import {timers_hop} from '../data/hops.js'
 import {timers_bush} from '../data/bush.js'
+import {timers_allotment} from '../data/allotments.js'
 import {styles} from '../helper/styles.js'
 import {findIcon, getDoubleNumber} from '../helper/helper.js'
 
@@ -60,10 +62,11 @@ export default class HomeScreen extends Component {
   }
 
   loadData = async () => {
-    console.log("---LOADING---")
     try {
       const data = await AsyncStorage.getItem("timers")
       if (data !== null) {
+        console.log("---LOADING---")
+        console.log(data)
         this.setState({timers_shown: JSON.parse(data)}, () => {
           var today = new Date()
           today = today.toISOString()
@@ -110,6 +113,9 @@ export default class HomeScreen extends Component {
           })
         })
 
+      }
+      else {
+        console.log("--- NO DATA ---")
       }
     } catch (e) {
       console.log(e)
@@ -188,6 +194,29 @@ export default class HomeScreen extends Component {
   }
 
   onAddPress(item) {
+
+    for (var i = 0; i < this.state.timers_shown.length; i++) {
+      if (item.name == this.state.timers_shown[i].name) {
+        console.log(item.key)
+        console.log(item.name)
+        console.log(this.state.timers_shown[i].key)
+        console.log(this.state.timers_shown[i].name)
+        Alert.alert(
+          "Cannot Add Item",
+          item.name + " Already Exists in Your Saved List",
+          [
+            {
+              text: "Ok",
+              onPress: () => {return},
+              style: "cancel"
+            }
+          ],
+          { cancelable: true }
+        );
+        return
+      }
+    }
+
     var ob = {
       name: item.name,
       duration: item.duration,
@@ -198,7 +227,9 @@ export default class HomeScreen extends Component {
       item_running: false,
       notify_id: "",
       time_stamp: -1,
-      timer_id: ""
+      timer_id: "",
+      level: item.level,
+      skill: item.skill
     }
 
 
@@ -230,6 +261,9 @@ export default class HomeScreen extends Component {
             return (
               <View style = {styles.stView_main}>
                 <View style={{flexDirection: "row"}}>
+                  <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                    <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                  </View>
                   <Image source={findIcon(item)} style={styles.stImage}></Image>
                   <View style={{flexDirection:"column", flex: 1}}>
                     <View style={styles.stView_sub}>
@@ -311,7 +345,12 @@ export default class HomeScreen extends Component {
             </View>
           </TouchableOpacity>
           {this.state.view_shown ? <View>
-              <Text style = {styles.stText_header}>Trees</Text>
+            <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Trees</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -321,6 +360,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
@@ -341,7 +383,12 @@ export default class HomeScreen extends Component {
                 );
               }}>
               </FlatList>
-              <Text style = {styles.stText_header}>Fruit Trees</Text>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Fruit Trees</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -351,6 +398,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
@@ -371,7 +421,12 @@ export default class HomeScreen extends Component {
                 );
               }}>
               </FlatList>
-              <Text style = {styles.stText_header}>Hardwood Trees</Text>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Hardwood Trees</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -383,6 +438,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
@@ -403,7 +461,12 @@ export default class HomeScreen extends Component {
                 );
               }}>
               </FlatList>
-              <Text style = {styles.stText_header}>Special Trees</Text>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Special Trees</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -415,6 +478,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
@@ -435,7 +501,53 @@ export default class HomeScreen extends Component {
                 );
               }}>
               </FlatList>
-              <Text style = {styles.stText_header}>Herbs</Text>
+
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Allotments</Text>
+              </View>
+              <FlatList
+              scrollEnabled={false}
+              showsHorizontalScrollIndicator={false}
+              data={timers_allotment}
+              keyExtractor={(timer) => { timer.key }}
+              initialNumToRender = {0}
+              maxToRenderPerBatch={3}
+              renderItem={({item}) => {
+                return (
+                  <View style = {styles.stView_main}>
+                    <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                      </View>
+                      <Image source={findIcon(item)} style={styles.stImage}></Image>
+                      <View style={{flexDirection:"column", flex: 1}}>
+                        <View style={styles.stView_sub}>
+                          <Text style={styles.stText_name}>{item.name}</Text>
+                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                        </View>
+                        <View style={styles.stView_sub}>
+                          <Text style={styles.stText_type}>{item.type}</Text>
+                          <TouchableOpacity 
+                          style = {{width: 30, height: 30, marginBottom: 10, marginRight: 5}}
+                          onPress={() => this.onAddPress(item)}>
+                            <Image source={require("../assets/img_add.png")} style={{resizeMode:"contain", width: 30, height: 30}}></Image>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                );
+              }}>
+              </FlatList>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Herbs</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -447,6 +559,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
@@ -467,7 +582,12 @@ export default class HomeScreen extends Component {
                 );
               }}>
               </FlatList>
-              <Text style = {styles.stText_header}>Flowers</Text>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Flowers</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -479,6 +599,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
@@ -499,7 +622,12 @@ export default class HomeScreen extends Component {
                 );
               }}>
               </FlatList>
-              <Text style = {styles.stText_header}>Hops</Text>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Hops</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -511,6 +639,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
@@ -531,7 +662,12 @@ export default class HomeScreen extends Component {
                 );
               }}>
               </FlatList>
-              <Text style = {styles.stText_header}>Bushes</Text>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Bushes</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -543,6 +679,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{item.level}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
@@ -563,7 +702,12 @@ export default class HomeScreen extends Component {
                 );
               }}>
               </FlatList>
-              <Text style = {styles.stText_header}>Birdhouses</Text>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_hunter.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Birdhouses</Text>
+              </View>
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
@@ -575,6 +719,9 @@ export default class HomeScreen extends Component {
                 return (
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{item.level}</Text>
+                      </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
