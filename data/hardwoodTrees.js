@@ -1,6 +1,6 @@
 export const timers_hardwoodTree = [
 {
-    "name":"Teak Tree",
+    "name":"Teak",
     "duration": 3840,
     "type": "Hardwood Tree",
     "img": "img_teak",
@@ -13,7 +13,7 @@ export const timers_hardwoodTree = [
     skill: "Farming"
 },
 {
-    "name":"Mahogany Tree",
+    "name":"Mahogany",
     "duration": 5120,
     "type": "Hardwood Tree",
     "img": "img_mahogany",

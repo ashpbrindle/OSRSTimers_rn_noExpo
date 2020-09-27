@@ -1,6 +1,6 @@
 export const timers_specialTree = [
     {
-        "name":"Calquat Tree",
+        "name":"Calquat",
         "duration": 1280,
         "type": "Special Tree",
         "img": "img_calquat",
@@ -13,7 +13,7 @@ export const timers_specialTree = [
         skill: "Farming"
     },
     {
-        "name":"Crystal Acorn Tree",
+        "name":"Crystal Acorn",
         "duration": 480,
         "type": "Special Tree",
         "img": "img_crystal",
@@ -26,7 +26,7 @@ export const timers_specialTree = [
         skill: "Farming"
     },
     {
-        "name":"Celastrus Tree",
+        "name":"Celastrus",
         "duration": 800,
         "type": "Special Tree",
         "img": "img_celastrus",
@@ -39,7 +39,7 @@ export const timers_specialTree = [
         skill: "Farming"
     },
     {
-        "name":"Redwood Tree",
+        "name":"Redwood",
         "duration": 6400,
         "type": "Special Tree",
         "img": "img_redwood",

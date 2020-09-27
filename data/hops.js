@@ -1,8 +1,8 @@
-export const timers_hop = [
+export const timers_hops = [
     {
         "name":"Barley",
         "duration": 40,
-        "type": "Hops",
+        "type": "Hop",
         "img": "img_barley",
         "key": "41",
         "item_status": "Not Running",
@@ -15,7 +15,7 @@ export const timers_hop = [
     {
         "name":"Hammerstone",
         "duration": 40,
-        "type": "Hops",
+        "type": "Hop",
         "img": "img_hammerstone",
         "key": "42",
         "item_status": "Not Running",
@@ -28,7 +28,7 @@ export const timers_hop = [
     {
         "name":"Asgarnian",
         "duration": 50,
-        "type": "Hops",
+        "type": "Hop",
         "img": "img_asgarnian",
         "key": "43",
         "item_status": "Not Running",
@@ -41,7 +41,7 @@ export const timers_hop = [
     {
         "name":"Jute",
         "duration": 50,
-        "type": "Hops",
+        "type": "Hop",
         "img": "img_jute",
         "key": "44",
         "item_status": "Not Running",
@@ -54,7 +54,7 @@ export const timers_hop = [
     {
         "name":"Yanillian",
         "duration": 60,
-        "type": "Hops",
+        "type": "Hop",
         "img": "img_yanillian",
         "key": "45",
         "item_status": "Not Running",
@@ -67,7 +67,7 @@ export const timers_hop = [
     {
         "name":"Krandorian",
         "duration": 70,
-        "type": "Hops",
+        "type": "Hop",
         "img": "img_krandorian",
         "key": "46",
         "item_status": "Not Running",
@@ -80,7 +80,7 @@ export const timers_hop = [
     {
         "name":"Wildblood",
         "duration": 80,
-        "type": "Hops",
+        "type": "Hop",
         "img": "img_wildblood",
         "key": "47",
         "item_status": "Not Running",

@@ -1,6 +1,6 @@
 export const timers_fruitTree = [
 {
-    "name":"Apple Tree",
+    "name":"Apple",
     "duration": 960,
     "type": "Fruit Tree",
     "img": "img_apple",
@@ -13,7 +13,7 @@ export const timers_fruitTree = [
     skill: "Farming"
 },
 {
-    "name":"Banana Tree",
+    "name":"Banana",
     "duration": 960,
     "type": "Fruit Tree",
     "img": "img_banana",
@@ -26,7 +26,7 @@ export const timers_fruitTree = [
     skill: "Farming"
 },
 {
-    "name":"Orange Tree",
+    "name":"Orange",
     "duration": 960,
     "type": "Fruit Tree",
     "img": "img_orange",
@@ -39,7 +39,7 @@ export const timers_fruitTree = [
     skill: "Farming"
 },
 {
-    "name":"Curry Tree",
+    "name":"Curry",
     "duration": 960,
     "type": "Fruit Tree",
     "img": "img_curry",
@@ -52,7 +52,7 @@ export const timers_fruitTree = [
     skill: "Farming"
 },
 {
-    "name":"Pineapple Tree",
+    "name":"Pineapple",
     "duration": 960,
     "type": "Fruit Tree",
     "img": "img_pineapple",
@@ -65,7 +65,7 @@ export const timers_fruitTree = [
     skill: "Farming"
 },
 {
-    "name":"Papaya Tree",
+    "name":"Papaya",
     "duration": 960,
     "type": "Fruit Tree",
     "img": "img_papaya",
@@ -78,7 +78,7 @@ export const timers_fruitTree = [
     skill: "Farming"
 },
 {
-    "name":"Palm Tree",
+    "name":"Palm",
     "duration": 960,
     "type": "Fruit Tree",
     "img": "img_palm",
@@ -91,7 +91,7 @@ export const timers_fruitTree = [
     skill: "Farming"
 },
 {
-    "name":"Dragon Fruit Tree",
+    "name":"Dragon Fruit",
     "duration": 960,
     "type": "Fruit Tree",
     "img": "img_dragonfruit",

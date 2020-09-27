@@ -1,6 +1,6 @@
 export const timers_tree = [
 {
-    "name":"Acorn Tree",
+    "name":"Acorn",
     "duration": 200,
     "type": "Tree",
     "img": "img_acorn",
@@ -13,7 +13,7 @@ export const timers_tree = [
     skill: "Farming"
 },
 {
-    "name":"Willow Tree",
+    "name":"Willow",
     "duration": 280,
     "type": "Tree",
     "img": "img_willow",
@@ -26,7 +26,7 @@ export const timers_tree = [
     skill: "Farming"
 },
 {
-    "name":"Maple Tree",
+    "name":"Maple",
     "duration": 320,
     "type": "Tree",
     "img": "img_maple",
@@ -39,7 +39,7 @@ export const timers_tree = [
     skill: "Farming"
 },
 {
-    "name":"Yew Tree",
+    "name":"Yew",
     "duration": 400,
     "type": "Tree",
     "img": "img_yew",
@@ -52,7 +52,7 @@ export const timers_tree = [
     skill: "Farming"
 },
 {
-    "name":"Magic Tree",
+    "name":"Magic",
     "duration": 480,
     "type": "Tree",
     "img": "img_magic",

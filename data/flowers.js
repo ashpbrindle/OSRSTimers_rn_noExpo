@@ -1,6 +1,6 @@
 export const timers_flowers = [
     {
-        "name":"Marigold Flower",
+        "name":"Marigold",
         "duration": 20,
         "type": "Flower",
         "img": "img_marigold",
@@ -13,7 +13,7 @@ export const timers_flowers = [
         skill: "Farming"
     },
     {
-        "name":"Rosemary Flower",
+        "name":"Rosemary",
         "duration": 20,
         "type": "Flower",
         "img": "img_rosemary",
@@ -26,7 +26,7 @@ export const timers_flowers = [
         skill: "Farming"
     },
     {
-        "name":"Nasturtium Flower",
+        "name":"Nasturtium",
         "duration": 20,
         "type": "Flower",
         "img": "img_nasturtium",
@@ -39,7 +39,7 @@ export const timers_flowers = [
         skill: "Farming"
     },
     {
-        "name":"Woad Flower",
+        "name":"Woad",
         "duration": 20,
         "type": "Flower",
         "img": "img_woad",
@@ -65,7 +65,7 @@ export const timers_flowers = [
         skill: "Farming"
     },
     {
-        "name":"White Lillie Flower",
+        "name":"White Lillie",
         "duration": 20,
         "type": "Flower",
         "img": "img_white_lily",

@@ -1,7 +1,7 @@
 
 export const timers_herb = [
     {
-        "name":"Guam Herb",
+        "name":"Guam",
         "duration": 80,
         "type": "Herb",
         "img": "img_guam",
@@ -14,7 +14,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Marrentill Herb",
+        "name":"Marrentill",
         "duration": 80,
         "type": "Herb",
         "img": "img_marrentill",
@@ -27,7 +27,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Tarromin Herb",
+        "name":"Tarromin",
         "duration": 80,
         "type": "Herb",
         "img": "img_tarromin",
@@ -40,7 +40,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Harralander Herb",
+        "name":"Harralander",
         "duration": 80,
         "type": "Herb",
         "img": "img_harralander",
@@ -66,7 +66,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Ranarr Herb",
+        "name":"Ranarr",
         "duration": 80,
         "type": "Herb",
         "img": "img_ranarr",
@@ -79,7 +79,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Toadflax Herb",
+        "name":"Toadflax",
         "duration": 80,
         "type": "Herb",
         "img": "img_toadflax",
@@ -92,7 +92,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Irit Herb",
+        "name":"Irit",
         "duration": 80,
         "type": "Herb",
         "img": "img_irit",
@@ -105,7 +105,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Avantoe Herb",
+        "name":"Avantoe",
         "duration": 80,
         "type": "Herb",
         "img": "img_avantoe",
@@ -118,7 +118,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Kwuarm Herb",
+        "name":"Kwuarm",
         "duration": 80,
         "type": "Herb",
         "img": "img_kwuarm",
@@ -131,7 +131,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Snapdragon Herb",
+        "name":"Snapdragon",
         "duration": 80,
         "type": "Herb",
         "img": "img_snapdragon",
@@ -144,7 +144,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Cadantine Herb",
+        "name":"Cadantine",
         "duration": 80,
         "type": "Herb",
         "img": "img_cadantine",
@@ -157,7 +157,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Lantadyme Herb",
+        "name":"Lantadyme",
         "duration": 80,
         "type": "Herb",
         "img": "img_lantadyme",
@@ -170,7 +170,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Dwarf Weed Herb",
+        "name":"Dwarf Weed",
         "duration": 80,
         "type": "Herb",
         "img": "img_dwarf_weed",
@@ -183,7 +183,7 @@ export const timers_herb = [
         skill: "Farming"
     },
     {
-        "name":"Torstol Herb",
+        "name":"Torstol",
         "duration": 80,
         "type": "Herb",
         "img": "img_torstol",

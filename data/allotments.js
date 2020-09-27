@@ -1,7 +1,7 @@
 export const timers_allotment = [
     {
-        "name":"Potato Allotment",
-        "duration": 40,
+        "name":"Potato",
+        "duration": 0.25,
         "type": "Allotment",
         "img": "img_potato",
         "key": "54",
@@ -13,7 +13,7 @@ export const timers_allotment = [
         skill: "Farming"
     },
     {
-        "name":"Onion Allotment",
+        "name":"Onion",
         "duration": 40,
         "type": "Allotment",
         "img": "img_onion",
@@ -26,7 +26,7 @@ export const timers_allotment = [
         skill: "Farming"
     },
     {
-        "name":"Cabbage Allotment",
+        "name":"Cabbage",
         "duration": 40,
         "type": "Allotment",
         "img": "img_potato",
@@ -39,7 +39,7 @@ export const timers_allotment = [
         skill: "Farming"
     },
     {
-        "name":"Tomato Allotment",
+        "name":"Tomato",
         "duration": 40,
         "type": "Allotment",
         "img": "img_tomato",
@@ -52,7 +52,7 @@ export const timers_allotment = [
         skill: "Farming"
     },
     {
-        "name":"Sweetcorn Allotment",
+        "name":"Sweetcorn",
         "duration": 60,
         "type": "Allotment",
         "img": "img_sweetcorn",
@@ -65,7 +65,7 @@ export const timers_allotment = [
         skill: "Farming"
     },
     {
-        "name":"Strawberry Allotment",
+        "name":"Strawberry",
         "duration": 60,
         "type": "Allotment",
         "img": "img_strawberry",
@@ -78,7 +78,7 @@ export const timers_allotment = [
         skill: "Farming"
     },
     {
-        "name":"Watermelon Allotment",
+        "name":"Watermelon",
         "duration": 80,
         "type": "Allotment",
         "img": "img_watermelon",
@@ -91,7 +91,7 @@ export const timers_allotment = [
         skill: "Farming"
     },
     {
-        "name":"Snapegrass Allotment",
+        "name":"Snapegrass",
         "duration": 70,
         "type": "Allotment",
         "img": "img_snapegrass",

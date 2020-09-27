@@ -10,7 +10,7 @@ import {timers_birdhouse} from '../data/birdhouses.js'
 import {timers_fruitTree} from '../data/fruitTrees.js'
 import {timers_flowers} from '../data/flowers.js'
 import {timers_herb} from '../data/herbs.js'
-import {timers_hop} from '../data/hops.js'
+import {timers_hops} from '../data/hops.js'
 import {timers_bush} from '../data/bush.js'
 import {timers_allotment} from '../data/allotments.js'
 import {styles} from '../helper/styles.js'
@@ -59,6 +59,35 @@ export default class HomeScreen extends Component {
     } catch (e) {
       console.log(e)
     }
+  }
+
+  convertMins = (mins) => {
+    var hourstring = ""
+    var minstring = ""
+    var hours = (mins / 60);
+    var rhours = Math.floor(hours);
+    var minutes = (hours - rhours) * 60;
+    var rminutes = Math.round(minutes);
+    if (rhours == 1) {
+      hourstring = rhours + "hr"
+    }
+    else if (rhours == 0) {
+      hourstring = ""
+    }
+    else {
+      hourstring = rhours + "hrs"
+    }
+
+    if (rminutes == 1) {
+      minstring = rminutes + "min"
+    }
+    else if (rminutes == 0) {
+      minstring = ""
+    }
+    else {
+      minstring = rminutes + "mins"
+    }
+    return hourstring + " " + minstring
   }
 
   loadData = async () => {
@@ -151,7 +180,7 @@ export default class HomeScreen extends Component {
       id: item.key,
       largeIcon: "",
       title: "Timer Finished!",
-      message: "Your " + item.name + " is Ready", // (required)
+      message: "Your " + item.name + " " + item.type +" is Ready", // (required)
       date: new Date(Date.now() + (item.duration * 60) * ONE_SECOND), // in 60 secs
       allowWhileIdle: true, // (optional) set notification to work while on doze, default: false
     });
@@ -261,17 +290,14 @@ export default class HomeScreen extends Component {
             return (
               <View style = {styles.stView_main}>
                 <View style={{flexDirection: "row"}}>
-                  <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                    <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
-                  </View>
                   <Image source={findIcon(item)} style={styles.stImage}></Image>
                   <View style={{flexDirection:"column", flex: 1}}>
                     <View style={styles.stView_sub}>
                       <Text style={styles.stText_name}>{item.name}</Text>
-                      <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                      <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                     </View>
                     <View style={styles.stView_sub}>
-                      <View>
+                      <View style = {{flex: 1}}>
                         <Text style={styles.stText_type}>{item.type}</Text>
                         <Text style = {styles.stText_type}>{item.item_status}</Text>
                       </View>
@@ -341,7 +367,7 @@ export default class HomeScreen extends Component {
           }}>
             <View style = {{flexDirection: "row", justifyContent: "space-between"}}>
               <Text style = {styles.buttontextStyle}>{this.state.view_status}</Text>
-              <Image source={this.changeButtonImage()} style={{resizeMode:"contain", width: 20, height: 20}}></Image>
+              <Image source={this.changeButtonImage()} style={{alignSelf: "center", resizeMode:"contain", width: 20, height: 20}}></Image>
             </View>
           </TouchableOpacity>
           {this.state.view_shown ? <View>
@@ -361,13 +387,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{getDoubleNumber(parseInt(item.level))}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -399,13 +425,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{getDoubleNumber(parseInt(item.level))}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -439,13 +465,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5}}>{getDoubleNumber(parseInt(item.level))}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -479,13 +505,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{getDoubleNumber(parseInt(item.level))}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -520,13 +546,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{getDoubleNumber(parseInt(item.level))}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -560,13 +586,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{getDoubleNumber(parseInt(item.level))}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -600,13 +626,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{getDoubleNumber(parseInt(item.level))}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -631,7 +657,7 @@ export default class HomeScreen extends Component {
               <FlatList
               scrollEnabled={false}
               showsHorizontalScrollIndicator={false}
-              data={timers_hop}
+              data={timers_hops}
               keyExtractor={(timer) => { timer.key }}
               initialNumToRender = {0}
               maxToRenderPerBatch={3}
@@ -640,13 +666,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{getDoubleNumber(parseInt(item.level))}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{getDoubleNumber(parseInt(item.level))}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -680,13 +706,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{item.level}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{item.level}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>
@@ -720,13 +746,13 @@ export default class HomeScreen extends Component {
                   <View style = {styles.stView_main}>
                     <View style={{flexDirection: "row"}}>
                       <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
-                        <Text style={{fontSize: 30, color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin"}}>{item.level}</Text>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{item.level}</Text>
                       </View>
                       <Image source={findIcon(item)} style={styles.stImage}></Image>
                       <View style={{flexDirection:"column", flex: 1}}>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_name}>{item.name}</Text>
-                          <Text style={styles.stText_duration}>{(item.duration / 60).toFixed(1) + "hrs"}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
                         </View>
                         <View style={styles.stView_sub}>
                           <Text style={styles.stText_type}>{item.type}</Text>

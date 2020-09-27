@@ -1,6 +1,6 @@
 export const timers_bush = [
     {
-        "name":"Redberry Bush",
+        "name":"Redberry",
         "duration": 100,
         "type": "Bush",
         "img": "img_redberry",
@@ -13,7 +13,7 @@ export const timers_bush = [
         skill: "Farming"
     },
     {
-        "name":"Cadavaberry Bush",
+        "name":"Cadavaberry",
         "duration": 120,
         "type": "Bush",
         "img": "img_cadavaberry",
@@ -26,7 +26,7 @@ export const timers_bush = [
         skill: "Farming"
     },
     {
-        "name":"Dwellberry Bush",
+        "name":"Dwellberry",
         "duration": 140,
         "type": "Bush",
         "img": "img_dwellberry",
@@ -39,7 +39,7 @@ export const timers_bush = [
         skill: "Farming"
     },
     {
-        "name":"Jangerberry Bush",
+        "name":"Jangerberry",
         "duration": 160,
         "type": "Bush",
         "img": "img_jangerberry",
@@ -52,7 +52,7 @@ export const timers_bush = [
         skill: "Farming"
     },
     {
-        "name":"Whiteberry Bush",
+        "name":"Whiteberry",
         "duration": 160,
         "type": "Bush",
         "img": "img_whiteberry",
@@ -65,7 +65,7 @@ export const timers_bush = [
         skill: "Farming"
     },
     {
-        "name":"Poison Ivy Bush",
+        "name":"Poison Ivy",
         "duration": 160,
         "type": "Bush",
         "img": "img_poison_ivy",

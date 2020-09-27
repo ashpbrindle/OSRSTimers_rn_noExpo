@@ -3,7 +3,7 @@ export const timers_birdhouse = [
     {
         "name":"Bird House",
         "duration": 50,
-        "type": "Birdhouse",
+        "type": "",
         "img": "img_birdhouse",
         "id": 19,
         "item_status": "Not Running",
