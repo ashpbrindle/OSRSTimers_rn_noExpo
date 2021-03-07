@@ -7,6 +7,7 @@ import {timers_tree} from '../data/trees.js'
 import {timers_specialTree} from '../data/specialTrees.js'
 import {timers_hardwoodTree} from '../data/hardwoodTrees'
 import {timers_birdhouse} from '../data/birdhouses.js'
+import {timers_boss} from '../data/boss.js'
 import {timers_fruitTree} from '../data/fruitTrees.js'
 import {timers_flowers} from '../data/flowers.js'
 import {timers_herb} from '../data/herbs.js'
@@ -311,7 +312,7 @@ export default class HomeScreen extends Component {
                             var newDateObj = new Date(now.getTime() + item.duration*60000);
 
                             var temp = [...this.state.timers_shown]
-                            temp[index].item_status = "Running: " + getDoubleNumber(newDateObj.getHours()) + ":" + getDoubleNumber(newDateObj.getMinutes()) + " " + getDoubleNumber(newDateObj.getDate()) + "/" + getDoubleNumber(newDateObj.getMonth()) + "/" + newDateObj.getFullYear()
+                            temp[index].item_status = "Running: " + getDoubleNumber(newDateObj.getHours()) + ":" + getDoubleNumber(newDateObj.getMinutes()) + " " + getDoubleNumber(newDateObj.getDate()) + "/" + getDoubleNumber(newDateObj.getMonth() + 1) + "/" + newDateObj.getFullYear()
                             temp[index].item_running = true
                             var finish = new Date()
                             finish.setSeconds(now.getSeconds() + (item.duration * 60))
@@ -740,6 +741,46 @@ export default class HomeScreen extends Component {
               initialNumToRender = {0}
               maxToRenderPerBatch={3}
               data={timers_birdhouse}
+              keyExtractor={(timer) => { timer.key }}
+              renderItem={({item}) => {
+                return (
+                  <View style = {styles.stView_main}>
+                    <View style={{flexDirection: "row"}}>
+                      <View style={{borderRightWidth:0.2, borderColor: "grey",justifyContent:"center", alignItems:"center"}}>
+                        <Text style={{fontWeight: "bold", color: "#695f51", justifyContent:"center", alignItems:"center", fontFamily: "sans-serif-thin", margin: 5, margin: 5}}>{item.level}</Text>
+                      </View>
+                      <Image source={findIcon(item)} style={styles.stImage}></Image>
+                      <View style={{flexDirection:"column", flex: 1}}>
+                        <View style={styles.stView_sub}>
+                          <Text style={styles.stText_name}>{item.name}</Text>
+                          <Text style={styles.stText_duration}>{this.convertMins(item.duration)}</Text>
+                        </View>
+                        <View style={styles.stView_sub}>
+                          <Text style={styles.stText_type}>{item.type}</Text>
+                          <TouchableOpacity 
+                          style = {{width: 30, height: 30, marginBottom: 10, marginRight: 5}}
+                          onPress={() => this.onAddPress(item)}>
+                            <Image source={require("../assets/img_add.png")} style={{resizeMode:"contain", width: 30, height: 30}}></Image>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                );
+              }}>
+              </FlatList>
+              <View style= {{flexDirection: "row", height: 40, backgroundColor: "#695f51"}}> 
+                <View style= {{alignContent: "center", justifyContent: "center", alignItems: "center"}}>
+                  <Image style = {{resizeMode:"contain", height: 35, width: 35}} source={require("../assets/img_farming.png")}></Image>
+                </View>
+                <Text style = {styles.stText_header}>Boss</Text>
+              </View>
+              <FlatList
+              scrollEnabled={false}
+              showsHorizontalScrollIndicator={false}
+              initialNumToRender = {0}
+              maxToRenderPerBatch={3}
+              data={timers_boss}
               keyExtractor={(timer) => { timer.key }}
               renderItem={({item}) => {
                 return (

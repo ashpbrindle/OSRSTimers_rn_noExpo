@@ -63,6 +63,7 @@ export const findIcon = (item) => {
         case "img_strawberry": return require("../assets/img_strawberry.png")
         case "img_watermelon": return require("../assets/img_watermelon.png")
         case "img_snapegrass": return require("../assets/img_snapegrass.png")
+        case "img_hespori": return require("../assets/img_hespori.png")
         default: break
     }
 }

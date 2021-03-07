@@ -132,8 +132,8 @@ android {
         applicationId "com.osrstimers"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 4
-        versionName "2.1.0"
+        versionCode 5
+        versionName "2.2.0"
     }
     splits {
         abi {
@@ -161,7 +161,7 @@ android {
     }
     buildTypes {
         debug {
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
